@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1100.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="alumnos.VentanaAsignaturasController">
+  <children>
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="600.0" layoutX="0.0" layoutY="0.0" stroke="BLACK" strokeType="INSIDE" width="1100.0" />
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#14ff00" height="60.0" layoutX="0.0" layoutY="56.0" stroke="BLACK" strokeType="INSIDE" width="1100.0" />
+    <Label layoutX="536.0" layoutY="78.0" text="Experiencias Educativas" />
+    <AnchorPane id="AnchorPane" layoutX="0.0" layoutY="0.0" prefHeight="600.0" prefWidth="1100.0">
+      <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="600.0" layoutX="0.0" layoutY="0.0" stroke="BLACK" strokeType="INSIDE" width="1100.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#52ff00" height="50.0" layoutX="0.0" layoutY="44.0" stroke="BLACK" strokeType="INSIDE" width="1100.0" />
+        <ImageView fitHeight="132.99999954526785" fitWidth="177.3333282470703" layoutX="37.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+          <image>
+            <Image url="@175px-Trifuerza_Poder.png" />
+          </image>
+        </ImageView>
+        <Label layoutX="344.0" layoutY="44.0" text="Experiencias Educativas" textFill="WHITE">
+          <font>
+            <Font name="Arial Bold" size="50.0" />
+          </font>
+        </Label>
+        <TableView id="tableAlumnos" fx:id="tableAsignaturas" layoutX="62.0" layoutY="164.0" prefHeight="300.0" prefWidth="575.0">
+          <columns>
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="80.0" text="NRC" fx:id="columnNrc" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="138.0" text="Nombre de materia" fx:id="columnNombreMateria" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="95.0" text="Créditos" fx:id="ColumnCreditos" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="139.0" text="Horas de teoría" fx:id="columnHorasTeoria" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="122.0" text="Horas de práctica" fx:id="columnHorasPractica" />
+          </columns>
+        </TableView>
+        <Button fx:id="buttonEditar" layoutX="299.0" layoutY="516.0" mnemonicParsing="false" onAction="#editarDatos" prefWidth="102.0" text="Editar">
+          <font>
+            <Font name="Arial Bold" size="18.0" fx:id="x1" />
+          </font>
+          <textFill>
+            <Color blue="0.616" green="0.322" red="0.094" fx:id="x2" />
+          </textFill>
+        </Button>
+        <Button fx:id="buttonAgregar" font="$x1" layoutX="134.0" layoutY="516.0" mnemonicParsing="false" onAction="#agregarAlumno" prefWidth="102.0" text="Agregar" textFill="$x2" />
+        <Button fx:id="buttonEliminar" font="$x1" layoutX="478.0" layoutY="516.0" mnemonicParsing="false" onAction="#eliminarAlumno" text="Eliminar" textFill="$x2" />
+        <Rectangle fx:id="fondo" arcHeight="5.0" arcWidth="5.0" height="350.0" layoutX="699.0" layoutY="116.0" stroke="$x3" strokeType="INSIDE" visible="false" width="339.0">
+          <fill>
+            <Color blue="0.875" green="0.875" red="0.875" fx:id="x3" />
+          </fill>
+        </Rectangle>
+        <Label id="labelMatricula" fx:id="labelNrc" layoutX="725.0" layoutY="125.0" text="NRC" visible="false" />
+        <TextField id="fieldMatricula" fx:id="fieldNrc" layoutX="725.0" layoutY="153.0" prefWidth="200.0" visible="false" />
+        <Label fx:id="labelNombre" layoutX="725.0" layoutY="192.0" text="Nombre de la materia" visible="false" />
+        <Label id="labelPaterno" fx:id="labelCreditos" layoutX="725.0" layoutY="257.0" text="Creditos" visible="false" />
+        <Label id="labelMaterno" fx:id="labelTeoria" layoutX="725.0" layoutY="329.0" text="Horas de teoría" visible="false" />
+        <TextField fx:id="fieldNombre" layoutX="725.0" layoutY="217.0" prefWidth="200.0" visible="false" />
+        <TextField id="fieldPaterno" fx:id="fieldCreditos" layoutX="725.0" layoutY="286.0" prefWidth="200.0" visible="false" />
+        <TextField id="fieldMaterno" fx:id="fieldTeoria" layoutX="725.0" layoutY="361.0" prefWidth="200.0" visible="false" />
+        <Button fx:id="buttonLimpiar" font="$x1" layoutX="730.0" layoutY="516.0" mnemonicParsing="false" onAction="#limpiarCampos" text="Limpiar" textFill="$x2" visible="false" />
+        <Button fx:id="buttonGuardar" font="$x1" layoutX="937.0" layoutY="516.0" mnemonicParsing="false" onAction="#llenarDatosAlumno" text="Guardar" textFill="$x2" visible="false" />
+        <Button fx:id="buttonTerminar" font="$x1" layoutX="819.0" layoutY="516.0" mnemonicParsing="false" onAction="#actualizarAsignatura" prefWidth="102.0" text="Terminar" textFill="$x2" visible="false" />
+        <TextArea id="textAreaConfirmacion" fx:id="textConfirmacion" blendMode="SRC_OVER" disable="false" editable="false" focusTraversable="true" layoutX="768.0" layoutY="215.0" opacity="1.0" pickOnBounds="false" prefWidth="200.0" text="¿Seguro que quiere eliminar este registro?" visible="false" wrapText="true" />
+        <Button fx:id="buttonSi" layoutX="801.0" layoutY="337.0" mnemonicParsing="false" text="Si" textFill="$x2" visible="false">
+          <font>
+            <Font name="Arial Bold" size="12.0" fx:id="x4" />
+          </font>
+        </Button>
+        <Button fx:id="buttonNo" font="$x4" layoutX="881.0" layoutY="337.0" mnemonicParsing="false" text="No" textFill="$x2" visible="false" />
+        <MenuBar fx:id="menu" layoutX="185.0" layoutY="14.0">
+          <menus>
+            <Menu mnemonicParsing="false" text="Lista Alumnos" fx:id="ventanaAlumno">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Abrir" fx:id="abrirVentana" />
+              </items>
+            </Menu>
+            <Menu disable="true" mnemonicParsing="false" text="Lista Asignaturas">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Abrir" />
+              </items>
+            </Menu>
+          </menus>
+        </MenuBar>
+        <Label fx:id="labelPractica" layoutX="725.0" layoutY="397.0" text="Horas de práctica" visible="false" />
+        <TextField fx:id="fieldPractica" layoutX="725.0" layoutY="433.0" prefWidth="200.0" visible="false" />
+      </children>
+    </AnchorPane>
+  </children>
+</AnchorPane>
